@@ -1,17 +1,3 @@
-#!/bin/bash
-
-# Path asal foto (ubah sesuai lokasi file aslinya di laptop kamu)
-FOTO_ASAL="/home/jackmong/Downloads/IMG-20210916-WA0015.jpg"
-FOTO_TUJUAN="/var/www/html/IMG-20210916-WA0015.jpg"
-
-# Hapus index.html lama kalau ada
-if [ -f "/var/www/html/index.html" ]; then
-    sudo rm /var/www/html/index.html
-    echo "index.html lama dihapus."
-fi
-
-# Buat file index.html baru dengan animasi & hover elegan
-sudo tee /var/www/html/index.html > /dev/null <<'EOF'
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -19,55 +5,128 @@ sudo tee /var/www/html/index.html > /dev/null <<'EOF'
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fadhil Zakki Zulva | Web Developer</title>
   <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0; font-family: "Segoe UI", Tahoma, sans-serif;
-      background: #f9f9f9; color: #333; line-height: 1.6; overflow-x: hidden;
+    /* Global Style */
+    * {
+      box-sizing: border-box;
     }
-    .fade-in { opacity: 0; transform: translateY(30px); animation: fadeIn 1.2s ease forwards; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Smooth fade-in */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeIn 1.2s ease forwards;
+    }
     .fade-in.delay-1 { animation-delay: 0.3s; }
     .fade-in.delay-2 { animation-delay: 0.6s; }
     .fade-in.delay-3 { animation-delay: 0.9s; }
-    @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Header */
     header {
       background: linear-gradient(to right, #0a74da, #0d4c92);
-      color: white; text-align: center; padding: 80px 20px;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
     }
     header img {
-      width: 160px; height: 160px; border-radius: 50%;
-      object-fit: cover; border: 4px solid white;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
       transition: transform 0.3s ease;
     }
-    header img:hover { transform: scale(1.08) rotate(2deg); }
-    header h1 { margin: 20px 0 10px; font-size: 2.5em; }
-    header p { font-size: 1.2em; opacity: 0.9; }
-    section { max-width: 900px; margin: auto; padding: 60px 20px; }
+    header img:hover {
+      transform: scale(1.08) rotate(2deg);
+    }
+    header h1 {
+      margin: 20px 0 10px;
+      font-size: 2.5em;
+    }
+    header p {
+      font-size: 1.2em;
+      opacity: 0.9;
+    }
+
+    /* Section */
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 60px 20px;
+    }
     section h2 {
-      text-align: center; margin-bottom: 30px; color: #0a74da;
-      font-size: 2em; position: relative;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #0a74da;
+      font-size: 2em;
+      position: relative;
     }
     section h2::after {
-      content: ""; width: 60px; height: 3px; background: #0a74da;
-      display: block; margin: 10px auto 0; border-radius: 2px;
+      content: "";
+      width: 60px;
+      height: 3px;
+      background: #0a74da;
+      display: block;
+      margin: 10px auto 0;
+      border-radius: 2px;
     }
+
+    /* Portfolio */
     .portfolio-items {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
     .portfolio-items div {
-      background: white; padding: 20px; border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .portfolio-items div:hover {
       transform: translateY(-8px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
-    .contact ul { list-style: none; padding: 0; text-align: center; }
-    .contact ul li { margin: 10px 0; }
-    .contact a { color: #0a74da; text-decoration: none; transition: color 0.3s ease; }
-    .contact a:hover { color: #0d4c92; text-decoration: underline; }
-    footer { background: #0d4c92; color: white; text-align: center; padding: 20px; }
+
+    /* Contact */
+    .contact ul {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+    }
+    .contact ul li {
+      margin: 10px 0;
+    }
+    .contact a {
+      color: #0a74da;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .contact a:hover {
+      color: #0d4c92;
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      background: #0d4c92;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
   </style>
 </head>
 <body>
@@ -112,16 +171,3 @@ sudo tee /var/www/html/index.html > /dev/null <<'EOF'
   </footer>
 </body>
 </html>
-EOF
-
-# Copy foto ke /var/www/html/
-if [ -f "$FOTO_ASAL" ]; then
-    sudo cp "$FOTO_ASAL" "$FOTO_TUJUAN"
-    echo "Foto berhasil dicopy ke /var/www/html/"
-else
-    echo "⚠️ Foto tidak ditemukan di $FOTO_ASAL. Silakan ubah path FOTO_ASAL di script."
-fi
-
-# Restart nginx
-sudo systemctl restart nginx
-echo "✅ Website berhasil di-deploy! Cek di http://localhost"
