@@ -33,31 +33,26 @@
     }
 
     /* Header */
-    header {
-      background: linear-gradient(to right, #0a74da, #0d4c92);
-      color: white;
-      text-align: center;
-      padding: 80px 20px;
-    }
-    header img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid white;
-      transition: transform 0.3s ease;
-    }
-    header img:hover {
-      transform: scale(1.08) rotate(2deg);
-    }
-    header h1 {
-      margin: 20px 0 10px;
-      font-size: 2.5em;
-    }
-    header p {
-      font-size: 1.2em;
-      opacity: 0.9;
-    }
+   header {
+  background: linear-gradient(to right, #0a74da, #0d4c92);
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+header .profile-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;      /* biar jadi lingkaran */
+  object-fit: cover;       /* biar nggak gepeng */
+  border: 4px solid white; /* kasih border putih */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+header .profile-photo:hover {
+  transform: scale(1.08) rotate(2deg);
+}
 
     /* Section */
     section {
