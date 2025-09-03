@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fadhil Zakki Zulva | Wander Travel Guide</title>
   <style>
-    /* ===== Global Style ===== */
+    /* Global Style */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -13,44 +13,38 @@
     }
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: url("images/background.jpeg") no-repeat center center/cover;
       color: #333;
       line-height: 1.6;
       overflow-x: hidden;
-      position: relative;
+      background: #f9f9f9;
     }
 
-    /* Overlay agar teks lebih jelas */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 50, 0.5);
-      z-index: -1;
-    }
-
-    /* ===== Header / Hero ===== */
-    header.hero {
+    /* Hero Section */
+    .hero {
       position: relative;
-      background: url("images/5c723ae8-7471-4f35-a8d7-95bfffe88989.png") no-repeat center center/cover;
       height: 100vh;
+      background: url("images/background.jpeg") no-repeat center center/cover;
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-    .hero .overlay {
-      background: rgba(0,0,0,0.55);
       text-align: center;
-      padding: 40px;
-      border-radius: 12px;
     }
-    .hero h1, 
-    .hero p {
-      color: white;
-      margin: 10px 0;
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(10, 74, 150, 0.6); /* biru transparan */
     }
-    .profile-photo {
+
+    .hero .overlay {
+      position: relative;
+      z-index: 1;
+      padding: 20px;
+    }
+
+    .hero img.profile-photo {
       width: 160px;
       height: 160px;
       border-radius: 50%;
@@ -59,35 +53,30 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       transition: transform 0.3s ease;
     }
-    .profile-photo:hover {
+    .hero img.profile-photo:hover {
       transform: scale(1.08) rotate(2deg);
     }
 
-    /* ===== Animasi Fade-in ===== */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeIn 1.2s ease forwards;
+    .hero h1 {
+      color: white;
+      margin-top: 20px;
+      font-size: 2.5em;
     }
-    .fade-in.delay-1 { animation-delay: 0.3s; }
-    .fade-in.delay-2 { animation-delay: 0.6s; }
-    .fade-in.delay-3 { animation-delay: 0.9s; }
-    .fade-in.delay-4 { animation-delay: 1.2s; }
-    .fade-in.delay-5 { animation-delay: 1.5s; }
-
-    @keyframes fadeIn {
-      to { opacity: 1; transform: translateY(0); }
+    .hero p {
+      color: white;
+      font-size: 1.2em;
     }
 
-    /* ===== Section umum ===== */
+    /* Section umum */
     section {
       background: white;
       border-radius: 12px;
       padding: 40px 20px;
-      margin: 20px auto;
+      margin: 40px auto;
       max-width: 900px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
+
     section h2 {
       text-align: center;
       margin-bottom: 30px;
@@ -105,12 +94,11 @@
       border-radius: 2px;
     }
 
-    /* ===== Gallery ===== */
+    /* Gallery */
     .gallery-items {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 15px;
-      margin-top: 30px;
     }
     .gallery-items img {
       width: 100%;
@@ -124,14 +112,14 @@
       transform: scale(1.05);
     }
 
-    /* ===== Portfolio ===== */
+    /* Portfolio */
     .portfolio-items {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
     .portfolio-items div {
-      background: white;
+      background: #f9f9f9;
       padding: 20px;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -143,10 +131,9 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
-    /* ===== Contact ===== */
+    /* Contact */
     .contact ul {
       list-style: none;
-      padding: 0;
       text-align: center;
     }
     .contact ul li {
@@ -162,7 +149,7 @@
       text-decoration: underline;
     }
 
-    /* ===== Footer ===== */
+    /* Footer */
     footer {
       background: #0d4c92;
       color: white;
@@ -172,33 +159,28 @@
   </style>
 </head>
 <body>
-  <!-- Hero Section -->
+  <!-- Hero -->
   <header class="hero">
-    <div class="overlay fade-in">
-      <img src="images/IMG-20210916-WA0015.jpg" 
-           alt="Foto Fadhil Zakki Zulva" 
-           class="profile-photo fade-in">
-      <h1 class="fade-in delay-1">Fadhil Zakki Zulva</h1>
-      <p class="fade-in delay-2">Wander Travel Guide</p>
+    <div class="overlay">
+      <img src="images/IMG-20210916-WA0015.jpg" alt="Foto Fadhil Zakki Zulva" class="profile-photo">
+      <h1>Fadhil Zakki Zulva</h1>
+      <p>Wander Travel Guide</p>
     </div>
   </header>
 
-  <!-- About -->
-  <section class="about fade-in delay-1">
+  <!-- Tentang Saya -->
+  <section class="about">
     <h2>Tentang Saya</h2>
     <p>
-      Halo, saya Fadhil Zakki Zulva, seorang pecinta perjalanan yang selalu bersemangat mengeksplorasi budaya, alam, dan pengalaman baru di setiap sudut keindahan Indonesia. Dengan latar belakang di bidang perjalanan kerja saya sebagai traveler, saya percaya bahwa traveling bukan sekadar hiburan, melainkan cara untuk memperluas wawasan, membangun koneksi lintas budaya, dan menemukan inspirasi baru.
+      Halo, saya Fadhil Zakki Zulva, seorang pecinta perjalanan yang selalu bersemangat mengeksplorasi budaya, alam, dan pengalaman baru di setiap sudut keindahan Indonesia. Traveling bukan sekadar hiburan, melainkan cara untuk memperluas wawasan, membangun koneksi lintas budaya, dan menemukan inspirasi baru.
     </p>
-    <p>     
-      Selama perjalanan saya, saya telah mengunjungi gunung dan wisata di Indonesia, mendokumentasikan setiap momen melalui foto, tulisan, atau video, dan membagikannya agar bisa menjadi referensi serta motivasi bagi orang lain. Fokus saya adalah pada perjalanan yang bermakna, baik itu solo trip, tur guide, petualangan alam, maupun wisata budaya.
-    </p>
-    <p>     
-      Saya percaya setiap perjalanan memiliki cerita unik. Dengan pendekatan profesional, saya ingin terus menginspirasi banyak orang untuk menjelajah, menemukan perspektif baru, serta menjaga keberlanjutan destinasi wisata yang kita cintai. 🌍✨
+    <p>
+      Selama perjalanan saya, saya telah mengunjungi berbagai gunung dan destinasi wisata di Indonesia, mendokumentasikan setiap momen melalui foto, tulisan, atau video. Saya ingin menginspirasi banyak orang untuk menjelajah, menemukan perspektif baru, serta menjaga keberlanjutan destinasi wisata yang kita cintai. 🌍✨
     </p>
   </section>
 
-  <!-- Gallery -->
-  <section class="gallery fade-in delay-2">
+  <!-- Galeri -->
+  <section class="gallery">
     <h2>Galeri Perjalanan</h2>
     <div class="gallery-items">
       <img src="images/alam1.jpg" alt="Pemandangan Gunung">
@@ -208,8 +190,8 @@
     </div>
   </section>
 
-  <!-- Portfolio -->
-  <section class="portfolio fade-in delay-3">
+  <!-- Portofolio -->
+  <section class="portfolio">
     <h2>Portofolio</h2>
     <div class="portfolio-items">
       <div><h3>Proyek 1</h3><p>Deskripsi singkat tentang proyek ini.</p></div>
@@ -218,13 +200,14 @@
     </div>
   </section>
 
-  <!-- Contact -->
-  <section class="contact fade-in delay-4">
+  <!-- Kontak -->
+  <section class="contact">
     <h2>Kontak</h2>
     <ul>
       <li>Email: <a href="mailto:fadhilzakki143@gmail.com">fadhilzakki143@gmail.com</a></li>
       <li>WhatsApp: <a href="https://wa.me/6282131169262">082131169262</a></li>
       <li>Instagram: <a href="https://instagram.com/zaki.zulva">@zaki.zulva</a></li>
+      <li>Instagram Partner: <a href="https://instagram.com/wanderguide.id">@wanderguide.id</a></li>
       <li>LinkedIn: <a href="https://www.linkedin.com/in/fadhil-zakki-zulva">Fadhil Zakki Zulva</a></li>
       <li>GitHub: <a href="https://github.com/jackmong">jackmong</a></li>
     </ul>
@@ -232,7 +215,7 @@
 
   <!-- Footer -->
   <footer>
-    <p>Fadhil Zakki Zulva. Wander Travel Guide.</p>
+    <p>© 2025 Fadhil Zakki Zulva | Wander Travel Guide</p>
   </footer>
 </body>
 </html>
