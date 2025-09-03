@@ -5,52 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fadhil Zakki Zulva | Wander Travel Guide</title>
   <style>
-    /* Global Style */
+    /* ===== Global Style ===== */
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
     body {
-      margin: 0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    
-    /* Body dengan background gambar */
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: url("background.jpeg") no-repeat center center/cover;
+      background: url("images/background.jpeg") no-repeat center center/cover;
       color: #333;
       line-height: 1.6;
       overflow-x: hidden;
       position: relative;
     }
 
-    /* Overlay biar teks lebih jelas */
+    /* Overlay agar teks lebih jelas */
     body::before {
       content: "";
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0, 0, 50, 0.5); /* biru transparan */
+      background: rgba(0, 0, 50, 0.5);
       z-index: -1;
     }
 
-    /* Header */
-    header {
-      background: rgba(10, 116, 218, 0.8); /* biru transparan */
-      color: white;
-      text-align: center;
-      padding: 80px 20px;
-      border-radius: 10px;
-      margin: 20px auto;
-      max-width: 800px;
+    /* ===== Header / Hero ===== */
+    header.hero {
+      position: relative;
+      background: url("images/5c723ae8-7471-4f35-a8d7-95bfffe88989.png") no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-        
-    /* Smooth fade-in */
+    .hero .overlay {
+      background: rgba(0,0,0,0.55);
+      text-align: center;
+      padding: 40px;
+      border-radius: 12px;
+    }
+    .hero h1, 
+    .hero p {
+      color: white;
+      margin: 10px 0;
+    }
+    .profile-photo {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    .profile-photo:hover {
+      transform: scale(1.08) rotate(2deg);
+    }
+
+    /* ===== Animasi Fade-in ===== */
     .fade-in {
       opacity: 0;
       transform: translateY(30px);
@@ -66,43 +79,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Hero Section */
-    .hero {
-      position: relative;
-      background: rgba(10, 116, 218, 0.8)kok;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .hero .overlay {
-      background: rgba(0,0,0,0.55);
-      text-align: center;
-      padding: 40px;
-      border-radius: 12px;
-    }
-
-    .hero h1, .hero p {
-      color: white;
-      margin: 10px 0;
-    }
-
-    .profile-photo {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid white;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
-    }
-
-        .profile-photo:hover {
-          transform: scale(1.08) rotate(2deg);
-        }
-    
-       /* Box putih di section */
+    /* ===== Section umum ===== */
     section {
       background: white;
       border-radius: 12px;
@@ -111,7 +88,6 @@
       max-width: 900px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
-    
     section h2 {
       text-align: center;
       margin-bottom: 30px;
@@ -127,16 +103,15 @@
       display: block;
       margin: 10px auto 0;
       border-radius: 2px;
-}
+    }
 
-    /* Gallery */
+    /* ===== Gallery ===== */
     .gallery-items {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 15px;
       margin-top: 30px;
     }
-
     .gallery-items img {
       width: 100%;
       height: 220px;
@@ -145,12 +120,11 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       transition: transform 0.4s ease;
     }
-
     .gallery-items img:hover {
       transform: scale(1.05);
     }
 
-    /* Portfolio */
+    /* ===== Portfolio ===== */
     .portfolio-items {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -169,7 +143,7 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
-    /* Contact */
+    /* ===== Contact ===== */
     .contact ul {
       list-style: none;
       padding: 0;
@@ -188,7 +162,7 @@
       text-decoration: underline;
     }
 
-    /* Footer */
+    /* ===== Footer ===== */
     footer {
       background: #0d4c92;
       color: white;
@@ -256,6 +230,7 @@
     </ul>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>Fadhil Zakki Zulva. Wander Travel Guide.</p>
   </footer>
