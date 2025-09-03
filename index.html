@@ -27,36 +27,52 @@
     .fade-in.delay-1 { animation-delay: 0.3s; }
     .fade-in.delay-2 { animation-delay: 0.6s; }
     .fade-in.delay-3 { animation-delay: 0.9s; }
+    .fade-in.delay-4 { animation-delay: 1.2s; }
+    .fade-in.delay-5 { animation-delay: 1.5s; }
 
     @keyframes fadeIn {
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Header */
-   header {
-  background: linear-gradient(to right, #0a74da, #0d4c92);
-  color: white;
-  text-align: center;
-  padding: 80px 20px;
-}
+    /* Hero Section */
+    .hero {
+      position: relative;
+      background: url("images/5c723ae8-7471-4f35-a8d7-95bfffe88989.png") no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-header .profile-photo {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;      /* biar jadi lingkaran */
-  object-fit: cover;       /* biar nggak gepeng */
-  border: 4px solid white; /* kasih border putih */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease;
-}
+    .hero .overlay {
+      background: rgba(0,0,0,0.55);
+      text-align: center;
+      padding: 40px;
+      border-radius: 12px;
+    }
 
-header .profile-photo:hover {
-  transform: scale(1.08) rotate(2deg);
-}
+    .hero h1, .hero p {
+      color: white;
+      margin: 10px 0;
+    }
+
+    .profile-photo {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-photo:hover {
+      transform: scale(1.08) rotate(2deg);
+    }
 
     /* Section */
     section {
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
       padding: 60px 20px;
     }
@@ -75,6 +91,27 @@ header .profile-photo:hover {
       display: block;
       margin: 10px auto 0;
       border-radius: 2px;
+    }
+
+    /* Gallery */
+    .gallery-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .gallery-items img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-items img:hover {
+      transform: scale(1.05);
     }
 
     /* Portfolio */
@@ -125,28 +162,44 @@ header .profile-photo:hover {
   </style>
 </head>
 <body>
-  <header>
-    <img src="images/IMG-20210916-WA0015.jpg" 
-         alt="Foto Fadhil Zakki Zulva" 
-         class="profile-photo fade-in">
-    <h1 class="fade-in delay-1">Fadhil Zakki Zulva</h1>
-    <p class="fade-in delay-2">Wander Travel Guide</p>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="overlay fade-in">
+      <img src="images/IMG-20210916-WA0015.jpg" 
+           alt="Foto Fadhil Zakki Zulva" 
+           class="profile-photo fade-in">
+      <h1 class="fade-in delay-1">Fadhil Zakki Zulva</h1>
+      <p class="fade-in delay-2">Wander Travel Guide</p>
+    </div>
   </header>
 
+  <!-- About -->
   <section class="about fade-in delay-1">
     <h2>Tentang Saya</h2>
     <p>
       Halo, saya Fadhil Zakki Zulva, seorang pecinta perjalanan yang selalu bersemangat mengeksplorasi budaya, alam, dan pengalaman baru di setiap sudut keindahan Indonesia. Dengan latar belakang di bidang perjalanan kerja saya sebagai traveler, saya percaya bahwa traveling bukan sekadar hiburan, melainkan cara untuk memperluas wawasan, membangun koneksi lintas budaya, dan menemukan inspirasi baru.
     </p>
     <p>     
-      Selama perjalanan saya, saya telah mengunjungi gunung dan wisata di indonesia, mendokumentasikan setiap momen melalui foto, tulisan, atau video, dan membagikannya agar bisa menjadi referensi serta motivasi bagi orang lain. Fokus saya adalah pada perjalanan yang bermakna, baik itu solo trip, turgait, petualangan alam, maupun wisata budaya.
+      Selama perjalanan saya, saya telah mengunjungi gunung dan wisata di Indonesia, mendokumentasikan setiap momen melalui foto, tulisan, atau video, dan membagikannya agar bisa menjadi referensi serta motivasi bagi orang lain. Fokus saya adalah pada perjalanan yang bermakna, baik itu solo trip, tur guide, petualangan alam, maupun wisata budaya.
     </p>
     <p>     
       Saya percaya setiap perjalanan memiliki cerita unik. Dengan pendekatan profesional, saya ingin terus menginspirasi banyak orang untuk menjelajah, menemukan perspektif baru, serta menjaga keberlanjutan destinasi wisata yang kita cintai. 🌍✨
     </p>
   </section>
 
-  <section class="portfolio fade-in delay-4">
+  <!-- Gallery -->
+  <section class="gallery fade-in delay-2">
+    <h2>Galeri Perjalanan</h2>
+    <div class="gallery-items">
+      <img src="images/alam1.jpg" alt="Pemandangan Gunung">
+      <img src="images/alam2.jpg" alt="Pantai Tropis">
+      <img src="images/alam3.jpg" alt="Hutan Hijau">
+      <img src="images/alam4.jpg" alt="Sunrise di Pegunungan">
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section class="portfolio fade-in delay-3">
     <h2>Portofolio</h2>
     <div class="portfolio-items">
       <div><h3>Proyek 1</h3><p>Deskripsi singkat tentang proyek ini.</p></div>
@@ -155,7 +208,8 @@ header .profile-photo:hover {
     </div>
   </section>
 
-  <section class="contact fade-in delay-5">
+  <!-- Contact -->
+  <section class="contact fade-in delay-4">
     <h2>Kontak</h2>
     <ul>
       <li>Email: <a href="mailto:fadhilzakki143@gmail.com">fadhilzakki143@gmail.com</a></li>
