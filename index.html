@@ -6,6 +6,22 @@
   <title>Fadhil Zakki Zulva | Wander Travel Guide</title>
   <link rel="stylesheet" href="style.css">
 </head>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const images = document.querySelectorAll(".gallery-items img");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    images.forEach(img => observer.observe(img));
+  });
+</script>
+
 <body>
   <!-- Hero -->
   <header class="hero">
