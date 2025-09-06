@@ -82,22 +82,47 @@ section h2::after {
   border-radius: 2px;
 }
 
-/* Gallery */
+/* Gallery Masonry Style */
 .gallery-items {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
+  column-count: 3; /* Desktop: 3 kolom */
+  column-gap: 15px;
+  padding: 0;
 }
+
 .gallery-items img {
   width: 100%;
-  height: 220px;
-  object-fit: cover;
+  margin-bottom: 15px;
   border-radius: 12px;
+  display: block;
+  object-fit: contain; /* Semua gambar tampil full */
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: transform 0.4s ease;
+  background: #000;
+  transition: transform 0.3s ease, opacity 0.6s ease;
+  opacity: 0;
+  transform: translateY(20px);
 }
+
+.gallery-items img.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .gallery-items img:hover {
   transform: scale(1.05);
+}
+
+/* Responsif Tablet */
+@media (max-width: 900px) {
+  .gallery-items {
+    column-count: 2;
+  }
+}
+
+/* Responsif HP */
+@media (max-width: 600px) {
+  .gallery-items {
+    column-count: 1;
+  }
 }
 
 /* Portfolio */
